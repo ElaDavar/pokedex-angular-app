@@ -1,0 +1,21 @@
+input {
+  width: 100%;
+  text-align: center;
+}
+
+.search-bar {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-weight: 600;
+  padding: 1em;
+  display: inline-block;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+/* Button */
+button[type="submit"] {
+  display: none;
+}

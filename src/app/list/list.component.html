@@ -1,1 +1,9 @@
-<p>list works!</p>
+<div class="pokemon-names-container" *ngIf="pokemons">
+    <div (click)="onPokemonClick(pokemon)" id="pokemon-name" *ngFor="let pokemon of pokemons; let i = index">
+        {{ pokemon.name }}
+    </div>
+</div>
+<div class="list-buttons" fxLayout="row">
+    <span (click)="onPreviousClick()" class='start-btn'>Previous</span>
+    <span (click)="onForwardClick()" class='start-btn'>Forward</span>
+</div>

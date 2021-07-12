@@ -1,0 +1,105 @@
+:host {
+  /* width: 50%; */
+  padding: 0% 0% 0% 4%;
+  height: 100%;
+  width: 31%;
+  flex-flow: flex-direction flex-wrap;
+}
+
+/* Pokemon names */
+
+.pokemon-names-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(40%, 1fr));
+  grid-gap: 10px 10px;
+  max-height: 100%;
+  width: 100%;
+}
+
+.pokemon-names-container > div {
+  text-align: center;
+}
+
+#pokemon-name {
+  margin: 19px;
+  width: 91%;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  font-size: 2vw;
+  font-weight: lighter;
+  text-align: center;
+  font-family: "Pokemon";
+  font-weight: lighter;
+}
+
+#pokemon-name:hover {
+  font-size: 1.9vw;
+
+  color: #486d4a;
+}
+
+/* Video Game Buttons */
+
+.list-buttons {
+  display: inline-block;
+  /* position: static; */
+  justify-content: center;
+}
+
+.start-btn {
+  font-family: "Press Start 2p";
+  text-align: center;
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 0.2em gray;
+  cursor: pointer;
+}
+
+.start-btn:active {
+  box-shadow: none;
+  position: relative;
+  top: 0.2em;
+}
+
+/* small size viewport */
+@media screen and (max-width: 960px) {
+  :host {
+    width: 100%;
+    padding: 0;
+  }
+
+  #pokemon-name {
+    margin: 0 auto;
+    width: 100%;
+    justify-self: start;
+  }
+
+  .pokemon-names-container {
+    display: inline-grid;
+    grid-template-columns: repeat(5, minmax(15%, 1fr));
+    grid-template-rows: 26% 0;
+    height: 100%;
+    grid-gap: 0;
+    margin-bottom: -3%;
+  }
+
+  #pokemon-name {
+    font-size: 3.6vw;
+    align-self: start;
+  }
+
+  #pokemon-name:hover {
+    font-size: 3.3vw;
+    color: #ffcb05;
+  }
+}

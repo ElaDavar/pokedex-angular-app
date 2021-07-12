@@ -1,1 +1,29 @@
-<p>detail works!</p>
+<div id="pokedex">
+    <div id="left">
+      <div id="screen">
+        <div id="picture" *ngIf="pokemon" >
+          <img height="250px" width="250px" src="https://pokeres.bastionbot.org/images/pokemon/{{pokemon.id}}.png" />
+        </div>
+      </div>
+    </div>
+    <div id="right">
+      <div
+        id="stats"
+        fxLayout="row wrap"
+        fxLayout.lt-md="column"
+        fxLayoutGap="32px"
+        fxLayoutAlign="flex-start"
+      >
+        <div class="left-column" *ngIf="pokemon">
+          <p>Name: {{ pokemon.name }}</p>
+          <p>Type: {{ pokemon.species && pokemon.species.name }}</p>
+          <p>Base Experience: {{ pokemon.base_experience }}</p>
+        </div>
+        <div class="right-column" *ngIf="pokemon">
+          <p>Height: {{ pokemon.height }}''</p>
+          <p>Weight: {{ pokemon.weight }}</p>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
