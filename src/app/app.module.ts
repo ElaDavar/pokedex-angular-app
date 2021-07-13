@@ -10,6 +10,7 @@ import { DetailComponent } from './detail/detail.component';
 import { SearchComponent } from './search/search.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     //AppRoutingModule
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

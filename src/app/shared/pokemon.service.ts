@@ -20,9 +20,9 @@ export class PokemonService {
     return this.http.get<Pokemon>(url).pipe(catchError(this.handleError));
   }
 
-  getPokemons(offset: number): Observable<Pokemon[]> {
+  getPokemons(): Observable<Pokemon[]> {
     return this.http
-      .get<Pokemon[]>(`${this.apiUrl}` + `?offset=` + offset + `&limit=10`)
+      .get<Pokemon[]>(`${this.apiUrl}`)
       .pipe(catchError(this.handleError));
   }
 

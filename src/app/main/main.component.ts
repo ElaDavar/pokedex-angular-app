@@ -17,8 +17,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {}
 
-  getPokemons(offset: number) {
-    this.pokemonService.getPokemons(offset).subscribe((data: Pokemon[]) => {
+  getPokemons() {
+    this.pokemonService.getPokemons().subscribe((data: Pokemon[]) => {
       this.pokemons = (<any>data)["results"];
     });
   }
