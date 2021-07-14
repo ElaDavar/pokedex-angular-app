@@ -1,0 +1,15 @@
+<h3 mat-dialog-title>{{ data.name }}</h3>
+<div mat-dialog-content>
+  <img height="100px" width="100px" [src]="data.sprites.front_default" />
+  <div class="items">
+    <span><b>Type: </b>{{ data.types && data.types[0].type.name }}</span>
+    <span><b>Species: </b>{{ data.species && data.species.name }}</span>
+    <span><b>Base Experience: </b>{{ data.base_experience }}</span>
+    <span><b>Height: </b>{{ data.height }}''</span>
+    <span><b>Weight: </b>{{ data.weight }}</span>
+    <span><b>Health: </b>{{ data.stats && data.stats[0].base_stat }}</span>
+    <span
+      ><b>Attack Power: </b>{{ data.stats && data.stats[1].base_stat }}</span
+    >
+  </div>
+</div>

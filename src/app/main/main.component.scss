@@ -1,7 +1,11 @@
-:host {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
+.main {
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  margin-bottom: 16px;
 }

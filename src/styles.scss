@@ -1,15 +1,19 @@
-html {
-  /* width: 100%; */
-  height: 100vh;
-  overflow: hidden;
+* {
+  padding: 0;
+  margin: 0;
 }
 
+html,
 body {
-  margin: 0;
+  min-width: 320px;
   height: 100%;
+  width: 100%;
 }
 
-app-root {
+#root {
   height: 100%;
-  margin: 0;
+  width: 100%;
+}
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

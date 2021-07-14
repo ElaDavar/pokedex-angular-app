@@ -1,8 +1,0 @@
-<div class="pokemon-names-container" *ngIf="pokemons">
-    <div (click)="onPokemonClick(pokemon)" id="pokemon-name" *ngFor="let pokemon of pokemons
-    | paginate: { itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }">
-        {{ pokemon.name }}
-    </div>
-</div>
-<div></div>
-<pagination-controls (pageChange)="page = $event; pokemons = []; getPokemons()"></pagination-controls>

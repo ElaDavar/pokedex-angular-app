@@ -10,12 +10,10 @@ export class SearchComponent extends MainComponent implements OnInit {
 
   @Output() searchSubmit = new EventEmitter<any>();
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   searchPokemon(event: any) {
     const name = new FormData(event.target).get('name');
     this.searchSubmit.emit(name);
   }
-
 }

@@ -1,0 +1,17 @@
+.dialog {
+  overflow-y: auto;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  background-color: #c00d0d;
+  padding-left: 5px;
+}
+
+span {
+  padding-top: 10px;
+}
