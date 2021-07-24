@@ -7,4 +7,5 @@ export abstract class Pokemon {
     height!: number;
     weight!: number;
     stats!: [];
+    sprites!: any;
 }

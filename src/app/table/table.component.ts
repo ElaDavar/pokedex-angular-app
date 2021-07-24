@@ -12,20 +12,22 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class TableComponent extends MainComponent implements OnInit {
 
-  page = 1;
-  totalPokemons = 0;
-  displayedColumns: string[] = ['name', 'url', 'action'];
-  dataSource = new MatTableDataSource<Pokemon>(this.pokemons);
-
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  dataSource = new MatTableDataSource<Pokemon>(this.filteredPokemons);
+  breakpoint: number = 0;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : 4;
     this.getPokemons();
+    this.dataSource.paginator = this.paginator;
+  }
+
+  onResize(event: any) {
+    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 4;
   }
 
   onPokemonClick(event: any): void {
@@ -44,6 +46,10 @@ export class TableComponent extends MainComponent implements OnInit {
       );
     } else {
       this.filteredPokemons = this.pokemons;
+    }
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
     }
   }
 }
