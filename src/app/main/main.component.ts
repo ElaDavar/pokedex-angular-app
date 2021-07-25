@@ -57,4 +57,23 @@ export class MainComponent implements OnInit {
   onPageIndexChange(event: number) {
     this.page === event.toString();
   }
+
+  buyChange(event: string) {
+    this.pokemons.forEach((element: any) => {
+      if (element.name === event) {
+        element.buy = true;
+        console.log(element);
+        
+      }
+    });
+  }
+
+  wishChange(event: string) {
+    this.pokemons.forEach((element: any) => {
+      if (element.name === event) {
+        element.wish = true;
+        console.log(element);
+      }
+    });
+  }
 }
