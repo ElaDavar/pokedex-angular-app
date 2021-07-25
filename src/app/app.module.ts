@@ -1,31 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
 //import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { TableComponent } from './table/table.component';
 import { SearchComponent } from './search/search.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { FormsModule } from '@angular/forms';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { HeaderComponent } from './header/header.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatIconModule} from '@angular/material/icon';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    TableComponent,
     SearchComponent,
     HeaderComponent,
   ],
@@ -33,20 +33,16 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserModule,
     HttpClientModule,
     //AppRoutingModule
-    FlexLayoutModule,
     FormsModule,
-    NgxPaginationModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatPaginatorModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatGridListModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule,
+    NzGridModule,
+    NzCardModule,
+    NzButtonModule,
+    NzPaginationModule,
+    NzCheckboxModule,
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,28 @@
 <div class="main">
-    <app-header class="header"></app-header>
-  
-    <app-table></app-table>
+  <app-header class="header"></app-header>
+  <app-search (searchSubmit)="search($event)"></app-search>
+
+  <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" nzJustify="center">
+    <div nz-col class="gutter-row" *ngFor="let pokemon of filteredPokemons">
+      <nz-card class="inner-box" [nzCover]="coverTemplate" [nzActions]="[actionDetail, actionEdit, actionEllipsis]">
+        <nz-card-meta
+          nzTitle={{pokemon.name}}
+        ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img alt="example" src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png" />
+      </ng-template>
+      <ng-template #actionDetail>
+        <button nz-button nzType="text" (click)="onPokemonClick(pokemon.name)">Detail</button>
+      </ng-template>
+      <ng-template #actionEdit>
+        <label nz-checkbox [(ngModel)]="checked">Buy</label>
+      </ng-template>
+      <ng-template #actionEllipsis>
+        <label nz-checkbox [(ngModel)]="checked">Wishlist</label>
+      </ng-template>
+    </div>
   </div>
+
+  <nz-pagination [nzPageIndex]=page [nzTotal]="30" [nzPageSize]="8" (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
+</div>
