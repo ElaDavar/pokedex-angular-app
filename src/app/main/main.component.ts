@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from "../shared/pokemon.service";
 import { Pokemon } from "../shared/pokemon.model";
 import { DialogComponent } from '../dialog/dialog.component';
-
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -15,7 +14,8 @@ export class MainComponent implements OnInit {
   pokemons: any;
   filteredPokemons: any;
   page = "1";
-  checked = false;
+  buyList: string[] = [];
+  wishList: string[] = [];
 
   constructor(
     protected pokemonService: PokemonService,
@@ -62,8 +62,7 @@ export class MainComponent implements OnInit {
     this.pokemons.forEach((element: any) => {
       if (element.name === event) {
         element.buy = true;
-        console.log(element);
-        
+        this.buyList.push(element.name);
       }
     });
   }
@@ -72,7 +71,7 @@ export class MainComponent implements OnInit {
     this.pokemons.forEach((element: any) => {
       if (element.name === event) {
         element.wish = true;
-        console.log(element);
+        this.wishList.push(element.name);
       }
     });
   }

@@ -2,24 +2,44 @@
   <app-header class="header"></app-header>
   <app-search (searchSubmit)="search($event)"></app-search>
 
-  <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" nzJustify="center">
-    <div nz-col class="gutter-row" *ngFor="let pokemon of filteredPokemons">
-      <nz-card class="inner-box" [nzActions]="[actionDetail, actionEdit, actionEllipsis]">
-        <nz-card-meta
-          nzTitle={{pokemon.name}}
-        ></nz-card-meta>
-      </nz-card>
-      <ng-template #actionDetail>
-        <button nz-button nzType="text" (click)="onPokemonClick(pokemon.name)">Detail</button>
-      </ng-template>
-      <ng-template #actionEdit>
-        <button nz-button nzType="text" (click)="buyChange(pokemon.name)">Buy</button>
-      </ng-template>
-      <ng-template #actionEllipsis>
-        <button nz-button nzType="text" (click)="wishChange(pokemon.name)">Wishlist</button>
-      </ng-template>
-    </div>
-  </div>
+  <nz-tabset>
+    <nz-tab nzTitle="Pokemons">
+      <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" nzJustify="center">
+        <div nz-col class="gutter-row" *ngFor="let pokemon of filteredPokemons">
+          <nz-card class="inner-box" [nzActions]="[actionDetail, actionBuy, actionWish]">
+            <nz-card-meta nzTitle={{pokemon.name}}></nz-card-meta>
+          </nz-card>
+          <ng-template #actionDetail>
+            <button nz-button nzType="text" (click)="onPokemonClick(pokemon.name)">Detail</button>
+          </ng-template>
+          <ng-template #actionBuy>
+            <button nz-button nzType="text" (click)="buyChange(pokemon.name)">Buy</button>
+          </ng-template>
+          <ng-template #actionWish>
+            <button nz-button nzType="text" (click)="wishChange(pokemon.name)">Wishlist</button>
+          </ng-template>
+        </div>
+      </div>
+    </nz-tab>
+    <nz-tab nzTitle="Ordered">
+      <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" nzJustify="center">
+        <div nz-col class="gutter-row" *ngFor="let pokemon of buyList">
+          <nz-card class="inner-box">
+            <nz-card-meta nzTitle={{pokemon}}></nz-card-meta>
+          </nz-card>
+        </div>
+      </div>
+    </nz-tab>
+    <nz-tab nzTitle="Wishlist">
+      <div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }" nzJustify="center">
+        <div nz-col class="gutter-row" *ngFor="let pokemon of wishList">
+          <nz-card class="inner-box">
+            <nz-card-meta nzTitle={{pokemon}}></nz-card-meta>
+          </nz-card>
+        </div>
+      </div>
+    </nz-tab>
+  </nz-tabset>
 
   <nz-pagination [nzPageIndex]=page [nzTotal]="30" [nzPageSize]="8" (nzPageIndexChange)="onPageIndexChange($event)"></nz-pagination>
 </div>
