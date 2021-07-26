@@ -14,8 +14,8 @@ export class MainComponent implements OnInit {
   pokemons: any;
   filteredPokemons: any;
   page = "1";
-  buyList: string[] = [];
-  wishList: string[] = [];
+  buyList: any;
+  wishList: any;
 
   constructor(
     protected pokemonService: PokemonService,
@@ -26,6 +26,8 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.getPokemons();
+    this.buyList = JSON.parse(localStorage.getItem("buy") as string);
+    this.wishList = JSON.parse(localStorage.getItem("wish") as string);
   }
 
   getPokemons() {
@@ -61,8 +63,21 @@ export class MainComponent implements OnInit {
   buyChange(event: string) {
     this.pokemons.forEach((element: any) => {
       if (element.name === event) {
-        element.buy = true;
-        this.buyList.push(element.name);
+        if (this.buyList === null) {
+          this.buyList = [];
+        }
+        if (!this.buyList.includes(element.name)) {
+          element.buy = true;
+          this.buyList.push(element.name);
+          localStorage.setItem("buy", JSON.stringify(this.buyList));
+          let index = this.wishList.indexOf(element.name);
+          this.wishList.splice(index, 1);
+        } else {
+          element.buy = false;
+          let index = this.buyList.indexOf(element.name);
+          this.buyList.splice(index, 1);
+          localStorage.setItem("buy", JSON.stringify(this.buyList));
+        }
       }
     });
   }
@@ -70,8 +85,21 @@ export class MainComponent implements OnInit {
   wishChange(event: string) {
     this.pokemons.forEach((element: any) => {
       if (element.name === event) {
-        element.wish = true;
-        this.wishList.push(element.name);
+        if (this.wishList === null) {
+          this.wishList = [];
+        }
+        if (!this.buyList.includes(element.name)) {
+          if (!this.wishList.includes(element.name)) {
+            element.wish = true;
+            this.wishList.push(element.name);
+            localStorage.setItem("wish", JSON.stringify(this.wishList));
+          } else {
+            element.wish = false;
+            let index = this.wishList.indexOf(element.name);
+            this.wishList.splice(index, 1);
+            localStorage.setItem("wish", JSON.stringify(this.wishList));
+          }
+        }
       }
     });
   }
