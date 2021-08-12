@@ -16,10 +16,6 @@ export class PokemonService {
     this.apiUrl = environment.apiUrl;
   }
 
-  getPokemon(url: any) {
-    return this.http.get<Pokemon>(url).pipe(catchError(this.handleError));
-  }
-
   getPokemons(): Observable<Pokemon[]> {
     return this.http
       .get<Pokemon[]>(`${this.apiUrl}`)

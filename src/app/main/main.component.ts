@@ -13,7 +13,6 @@ export class MainComponent implements OnInit {
 
   pokemons: any;
   filteredPokemons: any;
-  page = "1";
   buyList: any;
   wishList: any;
 
@@ -37,7 +36,7 @@ export class MainComponent implements OnInit {
     });
   }
 
-  onPokemonClick(event: any): void {
+  onPokemonClick(event: string): void {
     this.pokemonService.getPokemonByName(event).subscribe((data: Pokemon[]) => {
       this.dialog.open(DialogComponent, {
         width: '300px',
@@ -46,7 +45,7 @@ export class MainComponent implements OnInit {
     });
   }
 
-  search(event: any) {
+  search(event: string) {
     if (event) {
       this.filteredPokemons = this.pokemons.filter(
         (item: any) => item.name === event
@@ -54,10 +53,6 @@ export class MainComponent implements OnInit {
     } else {
       this.filteredPokemons = this.pokemons;
     }
-  }
-
-  onPageIndexChange(event: number) {
-    this.page === event.toString();
   }
 
   buyChange(event: string) {
