@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { SearchComponent } from './search/search.component';
-import { HeaderComponent } from './header/header.component';
 
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -21,6 +20,7 @@ import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 registerLocaleData(en);
 
@@ -29,7 +29,6 @@ registerLocaleData(en);
     AppComponent,
     MainComponent,
     SearchComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +44,7 @@ registerLocaleData(en);
     NzCheckboxModule,
     NzTabsModule,
     NzIconModule,
+    NzInputModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
